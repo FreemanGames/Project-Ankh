@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Trigger
+  - Hazard
+  - Stopper
   layers:
   - Default
   - TransparentFX
@@ -15,8 +18,8 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
+  - Trigger
+  - hazard
   - 
   - 
   - 

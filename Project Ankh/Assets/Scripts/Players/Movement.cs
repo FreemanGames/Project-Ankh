@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour {
 
 	//private Animator mAnimator;
 	private NavMeshAgent mNavMeshAgent;
-	//private bool mRunning = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -22,19 +22,33 @@ public class Movement : MonoBehaviour {
 		RaycastHit hit;
 
 		if (Input.GetMouseButtonDown (0)) {
-			if (Physics.Raycast(ray, out hit, 100)); {
+			if (Physics.Raycast (ray, out hit, 100))
+				//;
+			{
 				mNavMeshAgent.destination = hit.point;
 			}
+
+
 		}
 	
 		//if(mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance)
 		//{
-			//mRunning = false;
+		//mRunning = false;
 		//}
 		//else
 		//{
-			//mRunning = true;
+		//mRunning = true;
 		//}
 		//mAnimator.SetBool("running", mRunning);
+
+
+
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			GetComponent<NavMeshAgent> ().speed = (5.0f);
+			//Debug.Log ("speed"); 
+		}
+		else {
+			GetComponent<NavMeshAgent> ().speed = (3.5f);
+			}
 	}
 }
