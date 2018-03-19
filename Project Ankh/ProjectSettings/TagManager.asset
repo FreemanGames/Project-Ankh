@@ -7,7 +7,7 @@ TagManager:
   - Ground
   - Trigger
   - Hazard
-  - Stopper
+  - BreakableWall
   layers:
   - Default
   - TransparentFX

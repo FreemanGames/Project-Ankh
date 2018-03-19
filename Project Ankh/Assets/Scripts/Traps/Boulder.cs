@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boulder : MonoBehaviour {
 
 	public int damage = 1;
+	public GameObject wall;
 
 	void Start () {
 	}
@@ -15,7 +16,9 @@ public class Boulder : MonoBehaviour {
 		}
 	}
 	void Safe (Collider other){
-		if (other.tag == "Stopper") {
+		if (other.tag == "BreakableWall") {
+			Debug.Log ("bleh");
+			wall.SetActive(false);
 		}
 }
 }

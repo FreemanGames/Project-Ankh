@@ -10,20 +10,28 @@ public class CheckPointSystem : MonoBehaviour {
 	public Transform checkPoint;
 
 
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 
+	public void RespawnPlayer()
+	{
+		player.transform.position = spawnPoint.transform.position;
+	}
 
 	public void LifeLost(int lifeToLoose) {
 		lives -= lifeToLoose;
 	}
 
+	     
+
+
 	// Update is called once per frame
 	void Update () {
 		if (lives <= 0) {
-			Debug.Log ("something");
+			GetComponent<PlayerHealth>().Death();
 		}
 	}
 }
