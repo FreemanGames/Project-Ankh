@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour {
 
 	//private Animator mAnimator;
 	private NavMeshAgent mNavMeshAgent;
 
-
 	// Use this for initialization
 	void Start () {
 		mNavMeshAgent = GetComponent<NavMeshAgent> ();
-
 	}
 	
 	// Update is called once per frame
@@ -27,8 +26,7 @@ public class Movement : MonoBehaviour {
 			{
 				mNavMeshAgent.destination = hit.point;
 			}
-
-
+				
 		}
 	
 		//if(mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance)
@@ -42,13 +40,14 @@ public class Movement : MonoBehaviour {
 		//mAnimator.SetBool("running", mRunning);
 
 
-
 		if (Input.GetKey (KeyCode.LeftShift)) {
 			GetComponent<NavMeshAgent> ().speed = (5.0f);
-			//Debug.Log ("speed"); 
+
 		}
 		else {
 			GetComponent<NavMeshAgent> ().speed = (3.5f);
+	
 			}
+
 	}
 }
