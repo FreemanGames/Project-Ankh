@@ -8,6 +8,7 @@ public class CheckPointSystem : MonoBehaviour {
 	public GameObject player;
 	public Transform spawnPoint;
 	public Transform checkPoint;
+	public Transform respawnPoint;
 
 
 

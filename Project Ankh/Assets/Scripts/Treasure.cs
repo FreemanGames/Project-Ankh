@@ -20,7 +20,7 @@ public class Treasure : MonoBehaviour {
 				RaycastHit collider;
 				if (Physics.Raycast(ray, out hit)){
 					//Debug.Log ("bleh");
-					other.GetComponent<ScoreSystem>().AddScore(scoreIncrease);
+					//GameObject.GetComponent<ScoreSystem>().AddScore(scoreIncrease);
 
 		}
 	}
