@@ -19,11 +19,7 @@ public class CheckPoint : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other){
-		
-		Debug.Log ("Checkpoint was touched by..." + other.gameObject.name);
-		
 		if (other.gameObject.tag == "Player") {
-			Debug.Log ("Touched by player!");
 			gameController.GetComponent<CheckPointSystem>().checkPoint = transform;
 		}
 	}

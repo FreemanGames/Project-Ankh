@@ -20,7 +20,6 @@ public class CheckPointSystem : MonoBehaviour {
 		player.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
 		player.transform.position = checkPoint.transform.position;
 		player.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
-
 	}
 
 	public void LifeLost(int lifeToLoose) {

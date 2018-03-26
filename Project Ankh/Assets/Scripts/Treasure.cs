@@ -18,7 +18,7 @@ public class Treasure : MonoBehaviour {
 		RaycastHit hit; {
 			if (Input.GetMouseButtonDown(0)){ // if left button pressed...
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				RaycastHit collider;
+				RaycastHit Hit;
 				if (Physics.Raycast(ray, out hit)){
 					if (hit.collider.gameObject == this.gameObject){
 					gameController.GetComponent<ScoreSystem>().AddScore(scoreIncrease);
