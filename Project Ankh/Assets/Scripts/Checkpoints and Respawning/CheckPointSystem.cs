@@ -8,8 +8,6 @@ public class CheckPointSystem : MonoBehaviour {
 	public GameObject player;
 	public Transform spawnPoint;
 	public Transform checkPoint;
-	public Transform respawnPoint;
-
 
 
 	// Use this for initialization
@@ -19,7 +17,10 @@ public class CheckPointSystem : MonoBehaviour {
 
 	public void RespawnPlayer()
 	{
-		player.transform.position = spawnPoint.transform.position;
+		player.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+		player.transform.position = checkPoint.transform.position;
+		player.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+
 	}
 
 	public void LifeLost(int lifeToLoose) {
@@ -31,8 +32,15 @@ public class CheckPointSystem : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+
+
 		if (lives <= 0) {
-			GetComponent<PlayerHealth>().Death();
+			player.GetComponent<PlayerHealth>().Death();
 		}
 	}
+
+
+
+
 }

@@ -6,6 +6,7 @@ public class Treasure : MonoBehaviour {
 
 	public int pointsToGive = 100;
 	public float scoreIncrease;
+	public GameObject gameController;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +20,10 @@ public class Treasure : MonoBehaviour {
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				RaycastHit collider;
 				if (Physics.Raycast(ray, out hit)){
-					//Debug.Log ("bleh");
-					//GameObject.GetComponent<ScoreSystem>().AddScore(scoreIncrease);
+					if (hit.collider.gameObject == this.gameObject){
+					gameController.GetComponent<ScoreSystem>().AddScore(scoreIncrease);
+					gameObject.SetActive(false);
+					}
 
 		}
 	}

@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour {
 
-	//private Animator mAnimator;
+	private Animator mAnimator;
 	private NavMeshAgent mNavMeshAgent;
+	private bool mRunning = false;
 
 	// Use this for initialization
 	void Start () {
+		mAnimator = GetComponent<Animator> ();
 		mNavMeshAgent = GetComponent<NavMeshAgent> ();
 	}
 	
@@ -29,15 +31,15 @@ public class Movement : MonoBehaviour {
 				
 		}
 	
-		//if(mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance)
-		//{
-		//mRunning = false;
-		//}
-		//else
-		//{
-		//mRunning = true;
-		//}
-		//mAnimator.SetBool("running", mRunning);
+		if(mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance)
+		{
+		mRunning = false;
+		}
+		else
+		{
+		mRunning = true;
+		}
+	mAnimator.SetBool("running", mRunning);
 
 
 		if (Input.GetKey (KeyCode.LeftShift)) {

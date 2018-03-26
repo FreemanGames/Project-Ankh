@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour {
 	public int health = 1;
 	public int lifeToLose = 1;
 	private NavMeshAgent mNavMeshAgent;
+	public GameObject gameController;
 
 	public void TakeDamage(int damageToTake) {
 		health -= damageToTake;
@@ -25,9 +26,10 @@ public class PlayerHealth : MonoBehaviour {
 	}  
 
 	public void Update () {
+		
 		if (health <= 0) {
-			GetComponent<CheckPointSystem>().LifeLost(lifeToLose);
-			GetComponent<CheckPointSystem>().RespawnPlayer();
+			gameController.GetComponent<CheckPointSystem>().LifeLost(lifeToLose);
+			gameController.GetComponent<CheckPointSystem>().RespawnPlayer();
 			health = 1;
 		}
 	}

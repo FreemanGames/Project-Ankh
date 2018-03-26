@@ -14,6 +14,8 @@ public class ProjectileDamage : MonoBehaviour {
 		if (other.tag == "Player") {
 			other.GetComponent<PlayerHealth>
 			().TakeDamage (damage);
+
+
 		}
 		Destroy (this.gameObject);
 	}

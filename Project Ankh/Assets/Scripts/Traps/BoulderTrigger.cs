@@ -8,8 +8,8 @@ public class BoulderTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "Player") {
-			Destroy (boulderGuard.gameObject);
-
+			boulderGuard.SetActive(false);
+			Debug.Log ("bleh");
 		}
 	}
 }

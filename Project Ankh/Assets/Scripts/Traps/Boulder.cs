@@ -17,8 +17,8 @@ public class Boulder : MonoBehaviour {
 	}
 	void Safe (Collider other){
 		if (other.tag == "BreakableWall") {
-			Debug.Log ("bleh");
 			wall.SetActive(false);
+			Debug.Log ("bleh");
 		}
 }
 }
