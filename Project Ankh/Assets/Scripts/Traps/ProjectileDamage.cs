@@ -11,11 +11,8 @@ public class ProjectileDamage : MonoBehaviour {
 		Destroy (this.gameObject, 4F);
 	}
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Player") {
-			other.GetComponent<PlayerHealth>
-			().TakeDamage (damage);
-
-
+		if (other.tag == "Player" ) {
+			other.GetComponent<PlayerHealth>().TakeDamage (damage);
 		}
 		Destroy (this.gameObject);
 	}

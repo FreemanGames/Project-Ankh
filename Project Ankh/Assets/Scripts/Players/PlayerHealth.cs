@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour {
 	private NavMeshAgent mNavMeshAgent;
 	public GameObject gameController;
 	public GameObject gameOverMenu;
+	public bool playerIsAlive = true;
 
 
 	public void TakeDamage(int damageToTake) {
@@ -23,17 +24,28 @@ public class PlayerHealth : MonoBehaviour {
 
 
 	public void Death(){
-		//GetComponent<NavMeshAgent>().enabled = false;
 		GetComponent<NavMeshAgent>().isStopped = true;
 		gameOverMenu.SetActive(true);
+
 	}  
+
+
+	void Die(){
+		//GetComponent<NavMeshAgent>().enabled = false;
+		gameController.GetComponent<CheckPointSystem>().LifeLost(lifeToLose);
+		gameController.GetComponent<CheckPointSystem>().RespawnPlayer();
+		health = 1;
+	}
+
+
 
 	public void Update () {
 		
 		if (health <= 0) {
-			gameController.GetComponent<CheckPointSystem>().LifeLost(lifeToLose);
-			gameController.GetComponent<CheckPointSystem>().RespawnPlayer();
-			health = 1;
+			if (playerIsAlive) {
+				playerIsAlive = false;
+				Invoke ("Die", 0.5f);
+			}
 		}
 	}
 }
