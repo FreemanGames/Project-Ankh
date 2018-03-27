@@ -9,7 +9,6 @@ public class BoulderTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "Player") {
 			boulderGuard.SetActive(false);
-			Debug.Log ("bleh");
 		}
 	}
 }

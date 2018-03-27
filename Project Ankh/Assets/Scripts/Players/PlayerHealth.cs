@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour {
 	public int lifeToLose = 1;
 	private NavMeshAgent mNavMeshAgent;
 	public GameObject gameController;
+	public GameObject gameOverMenu;
+
 
 	public void TakeDamage(int damageToTake) {
 		health -= damageToTake;
@@ -16,13 +18,14 @@ public class PlayerHealth : MonoBehaviour {
 
 
 	void Start () {
-
+		gameOverMenu.SetActive(false);
 	}
 
 
 	public void Death(){
-		GetComponent<NavMeshAgent>().enabled = false;
-
+		//GetComponent<NavMeshAgent>().enabled = false;
+		GetComponent<NavMeshAgent>().isStopped = true;
+		gameOverMenu.SetActive(true);
 	}  
 
 	public void Update () {

@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour {
 
 		RaycastHit hit;
 
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) && GetComponent<PlayerHealth>().health > 0f) {
 			if (Physics.Raycast (ray, out hit, 100))
 				//;
 			{
