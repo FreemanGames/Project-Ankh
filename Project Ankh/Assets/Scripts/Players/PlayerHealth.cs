@@ -30,22 +30,38 @@ public class PlayerHealth : MonoBehaviour {
 	}  
 
 
-	void Die(){
+	//public void KillPlayerAfterDelay(float delayTime){
+		//Invoke ("Die", delayTime);
+	//}
+
+
+	public void Update () {
+	}
+
+
+	//void Die(){
 		//GetComponent<NavMeshAgent>().enabled = false;
+		//gameController.GetComponent<CheckPointSystem>().LifeLost(lifeToLose);
+		//gameController.GetComponent<CheckPointSystem>().RespawnPlayer();
+		//health = 1;
+	//}
+
+
+	public void ReactivatePlayer(float delayTime){
+		Invoke ("ActivateMesh", delayTime);
+	}
+
+
+	void ActivateMesh(){
+		GetComponentInChildren<SkinnedMeshRenderer> ().enabled = true;
 		gameController.GetComponent<CheckPointSystem>().LifeLost(lifeToLose);
 		gameController.GetComponent<CheckPointSystem>().RespawnPlayer();
+		GetComponent<Collider>().enabled = true;
+		playerIsAlive = true;
 		health = 1;
 	}
 
 
 
-	public void Update () {
-		
-		if (health <= 0) {
-			if (playerIsAlive) {
-				playerIsAlive = false;
-				Invoke ("Die", 0.5f);
-			}
-		}
-	}
+
 }
