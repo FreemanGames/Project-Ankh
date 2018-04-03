@@ -79,7 +79,7 @@ public class Movement : MonoBehaviour
 		if (sprintButtonPressed > 0) {
 			GetComponent<NavMeshAgent> ().speed = (5.0f);
 		} else {
-			GetComponent<NavMeshAgent> ().speed = (3.5f);
+			GetComponent<NavMeshAgent> ().speed = (5.0f);
 		}
 	}
 
