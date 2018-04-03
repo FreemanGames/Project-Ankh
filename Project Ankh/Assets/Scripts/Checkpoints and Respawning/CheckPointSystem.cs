@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CheckPointSystem : MonoBehaviour {
 
@@ -8,11 +9,11 @@ public class CheckPointSystem : MonoBehaviour {
 	public GameObject player;
 	public Transform spawnPoint;
 	public Transform checkPoint;
-
+	public Text livesText;
 
 	// Use this for initialization
 	void Start () {
-		
+		UpdateText ();
 	}
 
 	public void RespawnPlayer()
@@ -24,9 +25,12 @@ public class CheckPointSystem : MonoBehaviour {
 
 	public void LifeLost(int lifeToLoose) {
 		lives -= lifeToLoose;
+		UpdateText ();
 	}
 
-	     
+	private void UpdateText(){
+		livesText.text = "Lives:" + lives.ToString ();
+	}
 
 
 	// Update is called once per frame
