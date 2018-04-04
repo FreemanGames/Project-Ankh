@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-
+	public LayerMask navLayer;
 	private Animator mAnimator;
 	private NavMeshAgent mNavMeshAgent;
 	private bool mRunning = false;
@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
 	{
 		mAnimator = GetComponent<Animator> ();
 		mNavMeshAgent = GetComponent<NavMeshAgent> ();
+		navLayer = (1 << LayerMask.NameToLayer("Default")); 
 	}
 	
 	// Update is called once per frame
@@ -27,7 +28,7 @@ public class Movement : MonoBehaviour
 		RaycastHit hit;
 
 		if (Input.GetMouseButtonDown (0) && GetComponent<PlayerHealth> ().health > 0f) {
-			if (Physics.Raycast (ray, out hit, 100)){		
+			if (Physics.Raycast (ray, out hit, 100, navLayer)){		
 				if (hit.collider.gameObject.tag == "NavSurface")
 				mNavMeshAgent.destination = hit.point;
 				//Debug.Log(hit.collider.gameObject.tag);
